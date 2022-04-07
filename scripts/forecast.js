@@ -22,10 +22,10 @@ const getWeather = async (id) => {
   return data[0];
 };
 
-getCity('toronto')
-  // .then(data => console.log(data))
-  .then(data => {
-    return getWeather(data.Key)
-  })
-  .then(data => console.log(data))
-  .catch(err => console.log(err));
+// getCity('toronto')
+//   // .then(data => console.log(data))
+//   .then(data => {
+//     return getWeather(data.Key)
+//   })
+//   .then(data => console.log(data))
+//   .catch(err => console.log(err));
