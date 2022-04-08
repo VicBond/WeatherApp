@@ -2,7 +2,19 @@ const cityForm = document.querySelector('form');
 const card = document.querySelector('.card');
 const details = document.querySelector('.details');
 
-const updateUI = data => {};
+const updateUI = data => {
+  const cityData = data.cityData;
+  const weatherData = data.weatherData;
+
+  details.innerHTML = `
+    <h5 class="my-3">${cityData.EnglishName}</h5>
+      <div class="my-3">${weatherData.WeatherText}</div>
+        <div class="display-4 my-4">
+          <span>${weatherData.Temperature.Metric.Value}</span>
+            <span>&deg;C</span>
+    </div>
+  `;
+};
 
 const updateCity = async (city) => {
   // console.log(city);
