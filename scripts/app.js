@@ -19,12 +19,24 @@ const updateUI = data => {
             <span>&deg;C</span>
     </div>
   `;
+  //update the day/night image and icon images
+  
+  let timeSrc = null;
+  if(weatherData.IsDayTime){
+    timeSrc = 'img/day.svg';
+  } else {
+    timeSrc = 'img/night.svg';
+  };
+  
+  time.setAttribute('src', timeSrc);
+
   //remove the d-none class if present
   if(card.classList.contains('d-none')){
     card.classList.remove('d-none');
   }
 
 };
+
 
 const updateCity = async (city) => {
   // console.log(city);
@@ -49,6 +61,4 @@ cityForm.addEventListener('submit', e => {
       console.log(err);
     });
 });
-
-
 
