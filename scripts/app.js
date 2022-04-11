@@ -5,9 +5,7 @@ const time = document.querySelector('img.time');
 const icon = document.querySelector('.icon img');
 
 const updateUI = data => {
-  // const cityData = data.cityData;
-  // const weatherData = data.weatherData;
-  //destructure properties
+  
   const { cityData, weatherData } = data;
 
   // update the weather data
@@ -23,12 +21,8 @@ const updateUI = data => {
   const iconSrc = `img/icons/${weatherData.WeatherIcon}.svg`;
   icon.setAttribute('src', iconSrc);
 
-  let timeSrc = null;
-  if(weatherData.IsDayTime){
-    timeSrc = 'img/day.svg';
-  } else {
-    timeSrc = 'img/night.svg';
-  };
+  const timeSrc = weatherData.IsDayTime ? 'img/day.svg' : 'img/night.svg';
+
   
   time.setAttribute('src', timeSrc);
 
@@ -41,7 +35,7 @@ const updateUI = data => {
 
 
 const updateCity = async (city) => {
-  // console.log(city);
+
   const cityData = await getCity(city);
   const weatherData = await getWeather(cityData.Key);
 
