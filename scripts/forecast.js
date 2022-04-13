@@ -10,18 +10,20 @@ class Forecast{
   
     return { cityData, weatherData };
   }
+  async getCity(city){
+    const query = `?apikey=${this.key}&q=${city}`;
+  
+    const response = await fetch(this.cityURI + query);
+    const data = await response.json();
+  
+    return data[0];
+  }
 }
 
 const key = 'OX7vL2zfGwdCkO9znCWbrlHlH57bXGgD';
 
 const getCity = async (city) => {
-  const base = 'http://dataservice.accuweather.com/locations/v1/cities/search';
-  const query = `?apikey=${key}&q=${city}`;
 
-  const response = await fetch(base + query);
-  const data = await response.json();
-
-  return data[0];
 
 };
 
