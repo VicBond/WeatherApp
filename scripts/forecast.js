@@ -4,7 +4,12 @@ class Forecast{
     this.weatherURI = 'http://dataservice.accuweather.com/currentconditions/v1/';
     this.cityURI = 'http://dataservice.accuweather.com/locations/v1/cities/search';
   }
+  async updateCity(city){
+    const cityData = await this.getCity(city);
+    const weatherData = await this.getWeather(cityData.Key);
   
+    return { cityData, weatherData };
+  }
 }
 
 const key = 'OX7vL2zfGwdCkO9znCWbrlHlH57bXGgD';
