@@ -18,24 +18,13 @@ class Forecast{
   
     return data[0];
   }
-}
-
-const key = 'OX7vL2zfGwdCkO9znCWbrlHlH57bXGgD';
-
-const getCity = async (city) => {
-
-
+  async getWeather(id){
+    const query = `${id}?apikey=${this.key}`;
+  
+    const response = await fetch(this.weatherURI + query);
+    const data = await response.json();
+  
+    return data[0];
+  }
 };
-
-const getWeather = async (id) => {
-  const base = 'http://dataservice.accuweather.com/currentconditions/v1/';
-  const query = `${id}?apikey=${key}`;
-
-  const response = await fetch(base + query);
-  const data = await response.json();
-
-  // console.log(data);
-  return data[0];
-};
-
 
