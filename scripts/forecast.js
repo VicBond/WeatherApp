@@ -1,3 +1,12 @@
+class Forecast{
+  constructor(){
+    this.key = 'OX7vL2zfGwdCkO9znCWbrlHlH57bXGgD';
+    this.weatherURI = 'http://dataservice.accuweather.com/currentconditions/v1/';
+    this.cityURI = 'http://dataservice.accuweather.com/locations/v1/cities/search';
+  }
+  
+}
+
 const key = 'OX7vL2zfGwdCkO9znCWbrlHlH57bXGgD';
 
 const getCity = async (city) => {
